@@ -1,7 +1,7 @@
 const r1c1 = document.querySelector("#r1c1");
-const r2c1 = document.querySelector("#r1c1");
-const r1c2 = document.querySelector("#r1c1");
-const r2c2 = document.querySelector("#r1c1");
+const r2c1 = document.querySelector("#r2c1");
+const r1c2 = document.querySelector("#r1c2");
+const r2c2 = document.querySelector("#r2c2");
 
 const myLibrary = [];
 
