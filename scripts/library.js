@@ -16,6 +16,4 @@ for (let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i]);
 }
 
-const element = document.querySelector("#r1c1");
-const htmlContent = element.innerHTML = "test";
-console.log(htmlContent);
+document.querySelector("#r1c1");.innerHTML = "test";
