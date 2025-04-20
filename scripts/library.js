@@ -17,5 +17,5 @@ for (let i = 0; i < myLibrary.length; i++) {
 }
 
 const element = document.querySelector("#r1c1");
-const htmlContent = element.innerHTML;
+const htmlContent = element.innerHTML = "test";
 console.log(htmlContent);
