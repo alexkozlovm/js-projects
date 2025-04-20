@@ -12,7 +12,7 @@ function addBookToLibrary(title, author) {
 
 addBookToLibrary("book", "alex");
 
-for (let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i]);
-    document.getElementById("r1c1").innerHTML = myLibrary[i];
+function display() {
+    document.getElementById("r1c1").innerHTML = "I need the value of "
 }
+
