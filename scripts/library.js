@@ -1,3 +1,5 @@
+const r1c1 = document.querySelector("#r1c1");
+
 const myLibrary = [];
 
 function Book(title, author) {
@@ -14,6 +16,5 @@ addBookToLibrary("book", "alex");
 
 for (let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i]);
+    onst htmlContent = r1c1.innerHTML = "test";
 }
-
-document.querySelector("#r1c1");.innerHTML = "test";
