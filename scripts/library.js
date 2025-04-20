@@ -7,7 +7,7 @@ function Book(title, author) {
 }
 
 function addBookToLibrary(title, author) {
-    myLibrary.push(Book(title, author));
+    myLibrary.push(new Book(title, author));
 }
 
 addBookToLibrary("book", "alex");
@@ -15,5 +15,3 @@ addBookToLibrary("book", "alex");
 for (let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i]);
 }
-
-const bookTest = new Book("book", "alex")
