@@ -51,19 +51,25 @@ table {
 
 tr {
     border: 1px;
-    border-color: black;
+    border-color: rgb(119, 119, 119);
     border-style: solid;
 }
 
 td {
     border: 1px;
-    border-color: black;
+    border-color: rgb(119, 119, 119);
     border-style: solid;
     padding: 3px;
 }
 
 table {
     border: 1px;
-    border-color: black;
+    border-color: rgb(119, 119, 119);
     border-style: solid;
+}
+
+body {
+	font-family: 'Courier New', Courier, monospace;
+	background-color: #232323;
+	color: #d1d1d1;
 }

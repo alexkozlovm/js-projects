@@ -1,7 +1,5 @@
-const r1c1 = document.querySelector("#r1c1");
-const r2c1 = document.querySelector("#r2c1");
-const r1c2 = document.querySelector("#r1c2");
-const r2c2 = document.querySelector("#r2c2");
+// Select the table body where rows will be added
+const tableBody = document.querySelector("#table-body");
 
 const myLibrary = [];
 
@@ -13,12 +11,26 @@ function Book(title, author) {
 
 function addBookToLibrary(title, author) {
     myLibrary.push(new Book(title, author));
+    console.log("Book added to library:", title, author);
 }
 
-addBookToLibrary("book", "alex");
+function renderLibrary() {
+    tableBody.innerHTML = "";
 
-for (let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i]);
-    r1c1.innerHTML = myLibrary[i].title;
-    r2c1.innerHTML = myLibrary[i].author;
+    myLibrary.forEach((book) => {
+        const row = document.createElement("tr");
+
+        const titleCell = document.createElement("td");
+        titleCell.textContent = book.title;
+
+        const authorCell = document.createElement("td");
+        authorCell.textContent = book.author;
+
+        row.appendChild(titleCell);
+        row.appendChild(authorCell);
+        tableBody.appendChild(row);
+    });
 }
+
+addBookToLibrary("test", "me");
+renderLibrary();
