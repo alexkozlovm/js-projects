@@ -1,4 +1,7 @@
 const r1c1 = document.querySelector("#r1c1");
+const r2c1 = document.querySelector("#r1c1");
+const r1c2 = document.querySelector("#r1c1");
+const r2c2 = document.querySelector("#r1c1");
 
 const myLibrary = [];
 
@@ -17,4 +20,5 @@ addBookToLibrary("book", "alex");
 for (let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i]);
     const htmlContent = r1c1.innerHTML = myLibrary[i].title;
+    const htmlContent = r2c1.innerHTML = myLibrary[i].author;
 }
