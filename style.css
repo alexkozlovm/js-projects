@@ -1,6 +1,10 @@
 tr {
     border: 1px;
+    border-color: black;
+    border-style: solid;
 }
 td {
     border: 1px;
+    border-color: black;
+    border-style: solid;
 }
