@@ -16,5 +16,5 @@ addBookToLibrary("book", "alex");
 
 for (let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i]);
-    const htmlContent = r1c1.innerHTML = "test";
+    const htmlContent = r1c1.innerHTML = myLibrary[i];
 }
