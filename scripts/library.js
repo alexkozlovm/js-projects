@@ -1,11 +1,9 @@
 const myLibrary = [];
 
-class Book {
-    constructor(title, author) {
-        this.id = crypto.randomUUID();
-        this.title = title;
-        this.author = author;
-    }
+function Book(title, author) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
 }
 
 function addBookToLibrary(title, author) {
@@ -15,5 +13,7 @@ function addBookToLibrary(title, author) {
 addBookToLibrary("book", "alex");
 
 for (let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[0]);
+    console.log(myLibrary[i]);
 }
+
+const bookTest = new Book("book", "alex")
