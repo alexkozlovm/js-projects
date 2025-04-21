@@ -120,5 +120,5 @@ submitButton.addEventListener("click", (event) => {
   dialog.close();
 });
 
-addBookToLibrary("test", "me", true);
+// addBookToLibrary("test", "me", true);
 renderLibrary();
