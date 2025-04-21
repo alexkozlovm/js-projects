@@ -5,7 +5,7 @@ const TicTacToe = () => {
         [8, 8, 8],
         [8, 8, 8]
     ];
-    let turn = 1;
+    let turn = 1; 
 
 
     const place = (x, y, player) => {
@@ -16,6 +16,7 @@ const TicTacToe = () => {
 
             if (checkWin(player)) {
                 console.log(`Player ${player} wins!`);
+                alert(`Player ${player} wins!`)
             } else {
                 turn = turn === 1 ? 0 : 1; 
                 console.log(`It is now player ${turn}'s turn!`)
@@ -26,6 +27,7 @@ const TicTacToe = () => {
         } else {
             console.log("Invalid move. Try again.");
         }
+        
     };
 
 
@@ -46,23 +48,52 @@ const TicTacToe = () => {
 
         return winPatterns.some(pattern => pattern.every(cell => cell === player));
     };
-
-
-    const displayToDOM = () => {
+    let turnLocal = 1;
+    const updateCell = (x,y) => {
+        const cellIndex = x * 3 + y; 
         
+        turnLocal = turnLocal === 1 ? 0 : 1; 
+
+        let turnMap = new Map();
+        turnMap.set(0,"X")
+        turnMap.set(1,"O")
+
+        const one = document.querySelector(".a" + cellIndex.toString());
+        one.innerHTML = turnMap.get(turnLocal);
+        printBoard();
+    };
+
+    const renderBoard = () => {
+            
+        const tableBody = document.querySelector("#tic-tac-toe-table");
+        tableBody.innerHTML = ""; 
+    
+        let i = 0;
+        board.forEach((row, rowIndex) => {
+            const tableRow = document.createElement("tr");
+
+    
+            row.forEach((cell, colIndex) => {
+                const tableCell = document.createElement("td");
+                tableCell.textContent = cell === 8 ? i : cell; 
+                tableCell.classList =  "a" + i.toString();
+                tableCell.addEventListener("click", () => place(rowIndex, colIndex, turn)); 
+                tableCell.addEventListener("click", () => updateCell(rowIndex, colIndex));
+                tableRow.appendChild(tableCell);
+                i++ 
+            });
+    
+            tableBody.appendChild(tableRow);
+        });
+
     };
 
 
-    const printBoard = () => {
-        console.log(board.map(row => row.join(" ")).join("\n"));
-    };
-
-
-    return { place, printBoard };
+    const printBoard = () => console.log(board.map(row => row.join(" ")).join("\n"));
+    return { place, printBoard, renderBoard };
 };
-
 
 
 // Example usage
 const game = TicTacToe();
-game.printBoard();
+game.renderBoard();
