@@ -18,7 +18,7 @@ function renderLibrary() {
     const tableBody = document.querySelector("#table-body");
     tableBody.innerHTML = "";
 
-
+    // Header row
     const headRow = document.createElement("tr");
 
     const titleHead =  document.createElement("th");
@@ -30,9 +30,17 @@ function renderLibrary() {
     const readHead = document.createElement("th");
     readHead.textContent = "Read?"
 
+    const toggleHead = document.createElement("th");
+    toggleHead.textContent = "Toggle Read";
+    
+    const removeHead = document.createElement("th");
+    removeHead.textContent = "Remove Book";
+
     headRow.appendChild(titleHead);
     headRow.appendChild(authorHead);
     headRow.appendChild(readHead);
+    headRow.appendChild(toggleHead);
+    headRow.appendChild(removeHead);
     tableBody.appendChild(headRow);
 
 
@@ -49,9 +57,43 @@ function renderLibrary() {
         const readCell = document.createElement("td");
         readCell.textContent = book.read;
 
+        const toggleCell = document.createElement("td");
+
+        const readToggle = document.createElement("button");
+        readToggle.classList.add("table-button");
+        readToggle.innerHTML = book.read ? "Mark Unread" : "Mark Read";
+        
+        const removeCell = document.createElement("td");
+
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("table-button");
+        removeButton.innerHTML = "Remove";
+
+        readToggle.addEventListener("click", () => {
+            const index = myLibrary.findIndex((b) => b.id === book.id);
+            if (index !== -1) {
+                myLibrary[index].read = !myLibrary[index].read;
+                readCell.textContent = myLibrary[index].read;
+                readToggle.innerHTML = myLibrary[index].read ? "Mark Unread" : "Mark Read";
+            }
+        });
+        
+        removeButton.addEventListener("click", () => {
+            const index = myLibrary.findIndex((b) => b.id === book.id);
+            if (index !== -1) {
+                myLibrary.splice(index, 1);
+                renderLibrary();
+            }
+        });
+
+
+        toggleCell.appendChild(readToggle);
+        removeCell.appendChild(removeButton);
         row.appendChild(titleCell);
         row.appendChild(authorCell);
         row.appendChild(readCell);
+        row.appendChild(toggleCell);
+        row.appendChild(removeCell);
         tableBody.appendChild(row);
     });
 }
@@ -78,9 +120,5 @@ submitButton.addEventListener("click", (event) => {
   dialog.close();
 });
 
-
-// Example thing
-/* 
 addBookToLibrary("test", "me", true);
 renderLibrary();
-*/
